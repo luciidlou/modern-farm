@@ -1,30 +1,29 @@
 import { createPlan } from "./plan.js"
-import { createAsparagus } from "./seeds/asparagus.js"
-import { createCorn } from "./seeds/corn.js"
-import { createPotato } from "./seeds/potato.js"
-import { createSoybean } from "./seeds/soybean.js"
-import { createSunflower } from "./seeds/sunflower.js"
-import { createWheat } from "./seeds/wheat.js"
-import { addPlant } from "./field.js"
 import { usePlants } from "./field.js"
+import { plantSeeds } from "./tractor.js"
+import { harvestPlants } from "./harvester.js"
+import { catalog } from "./catalogList.js"
 
+// STORE THE YEARLY PLAN IN A VARIABLE // RETURNS AN ARRAY OF OBJECTS
 const yearlyPlan = createPlan()
 
-const asparagusSeed = createAsparagus()
 
-const cornSeed = createCorn()
+// PLANTS ALL THE SEEDS BASED ON WHAT WE NEED FROM OUR yealyPlan ARRAY
+plantSeeds(yearlyPlan)
 
-const potatoSeed = createPotato()
+// DEFINE A VARIABLE TO HOLD THE ARRAY OF PLANTS NEEDED
+const plantsToHarvest = usePlants()
+// console.log(plantsToHarvest)
 
-const soybeanSeed = createSoybean()
+// CALL THE harvestPlants FUNCTION AND STORE THE IT IN A VARIABLE (an array of objects)
+const totalPlantsNeeded = harvestPlants(plantsToHarvest)
 
-const sunflowerSeed = createSunflower()
 
-const wheatSeed = createWheat()
+// console.log(totalPlantsNeeded)
 
-addPlant(asparagusSeed)
-addPlant(cornSeed)
-addPlant(soybeanSeed)
 
-const plantArr = usePlants()
-console.log(plantArr)
+const mainContainer = document.querySelector(".container")
+
+const plantsHTML = catalog(totalPlantsNeeded)
+
+mainContainer.innerHTML = plantsHTML
