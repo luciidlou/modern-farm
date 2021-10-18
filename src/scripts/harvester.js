@@ -25,6 +25,9 @@ const cornSeed = createCorn()
 
 
 // THIS FUNCTION TAKES AN ARRAY AS AN ARGUMENT AND RETURNS A NEW ARRAY 
+
+
+
 export const harvestPlants = (plantsArr) => {
     const plantsToHarvest = []
     for (const plantObj of plantsArr) {
@@ -49,3 +52,32 @@ export const harvestPlants = (plantsArr) => {
     }
     return plantsToHarvest
 }
+
+
+// REFACTOR THIS FUNCTION SO ITS NOT ALWAYS RUNNING BOTH for LOOPS
+
+    // export const harvestPlants = (plantsArr) => {
+    //     const plantsToHarvest = []
+    //     for (const plantObj of plantsArr) {
+    //         if (plantObj === "Corn") {
+    //             for (let i = 0; i < plantObj.output / 2; i++) {
+    //                     plantsToHarvest.push(cornSeed[0])
+    //                 }
+    //         } else {
+    //             for (let i = 0; i < plantObj.output; i++) {
+    //                 if (plantObj.type === "Asparagus") {
+    //                     plantsToHarvest.push(asparagusSeed)
+    //                 } else if (plantObj.type === "Soybean") {
+    //                     plantsToHarvest.push(soybeanSeed)
+    //                 } else if (plantObj.type === "Potato") {
+    //                     plantsToHarvest.push(potatoSeed)
+    //                 } else if (plantObj.type === "Sunflower") {
+    //                     plantsToHarvest.push(sunflowerSeed)
+    //                 } else if (plantObj.type === "Wheat") {
+    //                     plantsToHarvest.push(wheatSeed)
+    //                 } 
+    //             }       
+    //         }
+    //     }
+    //     return plantsToHarvest
+    // }
