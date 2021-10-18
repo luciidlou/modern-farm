@@ -40,8 +40,11 @@ export const harvestPlants = (plantsArr) => {
             } else if (plantObj.type === "Wheat") {
                 plantsToHarvest.push(wheatSeed)
             }
-        } if (plantObj.type === "Corn") {
-            plantsToHarvest.push(cornSeed[0])
+        }
+        for (let i = 0; i < plantObj.output / 2; i++) {
+            if (plantObj.type === "Corn") {
+                plantsToHarvest.push(cornSeed[0])
+            }
         }
     }
     return plantsToHarvest

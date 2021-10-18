@@ -2,7 +2,7 @@ import { createPlan } from "./plan.js"
 import { usePlants } from "./field.js"
 import { plantSeeds } from "./tractor.js"
 import { harvestPlants } from "./harvester.js"
-
+import { catalog } from "./catalog.js"
 
 // STORE THE YEARLY PLAN IN A VARIABLE // RETURNS AN ARRAY OF OBJECTS
 const yearlyPlan = createPlan()
@@ -19,4 +19,11 @@ const plantsToHarvest = usePlants()
 const totalPlantsNeeded = harvestPlants(plantsToHarvest)
 
 
-console.log(totalPlantsNeeded)
+// console.log(totalPlantsNeeded)
+
+
+const mainContainer = document.querySelector(".container")
+
+const plantsHTML = catalog(totalPlantsNeeded)
+
+mainContainer.innerHTML = plantsHTML
